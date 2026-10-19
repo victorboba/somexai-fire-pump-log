@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- These apps have no accounts, no analytics, no ads and no network calls, so nothing
+       is collected and nothing is used to track. See CLAUDE.md rule 4: if a network call
+       is ever added, this file and the App Privacy answers both have to change. -->
+  <key>NSPrivacyTracking</key>
+  <false/>
+  <key>NSPrivacyTrackingDomains</key>
+  <array/>
+  <key>NSPrivacyCollectedDataTypes</key>
+  <array/>
+
+  <!-- Required-reason APIs. UserDefaults is the only one this template touches:
+       DebugFlags (the debug paywall bypass), ReviewPrompter (the success counter), and
+       WidgetSnapshot (the App Group the app shares with ITS OWN widget).
+       CA92.1 — "Access info from same app, per documentation" — is the right reason for
+       all three. 1C8F.1 would only apply if the group were shared with a DIFFERENT app. -->
+  <key>NSPrivacyAccessedAPITypes</key>
+  <array>
+    <dict>
+      <key>NSPrivacyAccessedAPIType</key>
+      <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+      <key>NSPrivacyAccessedAPITypeReasons</key>
+      <array>
+        <string>CA92.1</string>
+      </array>
+    </dict>
+  </array>
+</dict>
+</plist>
